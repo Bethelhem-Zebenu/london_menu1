@@ -1,0 +1,509 @@
+
+
+/* Fonts */
+:root {
+
+  font-family: Montserrat;
+  --default-font: "Montserrat;"
+  /* --default-font: "Roboto", Montserrat, Source Sans Variable, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+  --heading-font: "Montserrat",  sans-serif;
+  --nav-font: "Montserrat",  sans-serif;
+}
+
+:root { 
+ /* --background-color: #00060f; /* Background color for the entire website, including individual sections */
+  /* --default-color: #ffffff; /* Default color used for the majority of the text content across the entire website */
+ /* --heading-color: #333333; /* Color for headings, subheadings and title throughout the website */
+ /* --accent-color: #5285BC; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+ /* --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+ /* --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+
+   /* unchanged: deep navy-black */
+    --nhy-color-top: #3B78AF;
+    --nhy-color-bottom: #D2603E;
+  --default-color: #E5E7EB;      /* softer than pure white for luxury readability */
+  --heading-color: #C7CED6;      /* refined light gray-blue for headings */
+
+  --accent-color: #5C6F82;       /* primary muted accent (dusty steel blue) */
+  --accent-hover: #94A3B8;       /* gentle lift on interaction */
+  --accent-active: #3A4A5F;      /* pressed / active state */
+
+  --surface-color: #0B1220;      /* elevated dark surface (cards, panels) */
+  --surface-muted: #111827;      /* slightly lighter layering option */
+
+  --border-color: #273449;       /* subtle structure, not harsh */
+
+  --contrast-color: #FFFFFF;     /* text/icons on accent elements */
+
+  --accent-premium: #C2A96A;     /* reserved luxury highlight (very limited use) */
+
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: #ffffff;  /* The default color of the main navmenu links */
+  --nav-hover-color: #5285BC; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #666666; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #5285BC; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+--background-color: #03142d;
+  --color: #94A3B8; 
+}
+
+.dark-background {
+  --background-color: #060606;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #252525;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: Montserrat;
+}
+
+
+.page-title {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 160px 0 80px 0;
+  text-align: center;
+  position: relative;
+}
+
+.page-title:before {
+  content: "";
+  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  position: absolute;
+  inset: 0;
+}
+
+.page-title h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.page-title .breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.page-title .breadcrumbs ol li+li {
+  padding-left: 10px;
+}
+
+.page-title .breadcrumbs ol li+li::before {
+  content: "/";
+  display: inline-block;
+  padding-right: 10px;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+}
+
+/*- section --------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  scroll-margin-top: 85px;
+  overflow: clip;
+}
+
+@media (max-width: 1199px) {
+
+  section,
+  .section {
+    scroll-margin-top: 66px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+  text-align: center;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title  {
+  font-size: 20px;
+  font-weight:1 300;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.section-title h2:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 160px;
+  height: 1px;
+  background: color-mix(in srgb, var(--nhy-color-top), transparent 60%);
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  margin: auto;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--nhy-color-bottom);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+
+
+
+/*--------------------------------------------------------------
+# Portfolio Section
+--------------------------------------------------------------*/
+.portfolio .portfolio-filters {
+  padding: 0;
+  margin: 0 auto 2px auto;
+  list-style: none;
+  text-align: center;
+}
+
+.portfolio .portfolio-filters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.portfolio .portfolio-filters li:hover,
+.portfolio .portfolio-filters li.filter-active {
+  color: var(--accent-color);
+}
+
+.portfolio .portfolio-filters li:first-child {
+  margin-left: 0;
+}
+
+.portfolio .portfolio-filters li:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 575px) {
+  .portfolio .portfolio-filters li {
+    font-size: 14px;
+    margin: 0 5px;
+  }
+}
+
+.portfolio .portfolio-item {
+  position: relative;
+  /* Added extra padding surrounding items so 3D elements do not clip on outer edges */
+  padding: 0px !important; 
+}
+
+.portfolio .portfolio-item .portfolio-info {
+  background-color: color-mix(in srgb, var(--surface-color), transparent 10%);
+  opacity: 0;
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  bottom: 0;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  padding: 15px;
+}
+
+.portfolio .portfolio-item .portfolio-info h4 {
+  color: #00060f;
+  font-size: 18px;
+  font-weight: 400;
+  padding-right: 50px;
+}
+
+.portfolio .portfolio-item .portfolio-info p {
+  color: #00060f;
+  font-size: 14px;
+  margin-bottom: 0;
+  padding-right: 50px;
+}
+
+.portfolio .portfolio-item .portfolio-info .preview-link,
+.portfolio .portfolio-item .portfolio-info .details-link {
+  position: absolute;
+  right: 50px;
+  font-size: 24px;
+  top: calc(50% - 14px);
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  transition: 0.3s;
+  line-height: 0;
+}
+
+.portfolio .portfolio-item .portfolio-info .preview-link:hover,
+.portfolio .portfolio-item .portfolio-info .details-link:hover {
+  color: var(--accent-color);
+}
+
+.portfolio .portfolio-item .portfolio-info .details-link {
+  right: 14px;
+  font-size: 28px;
+}
+
+.portfolio .portfolio-item:hover .portfolio-info {
+  opacity: 1;
+  bottom: 20px;
+}
+
+
+
+/* 3d part */
+
+.portfolio .portfolio-item .book-wrapper {
+  display: block;
+  position: relative;
+  width: 100%;
+  text-decoration: none;
+  perspective: 2500px; 
+  perspective-origin: 50% 50%; /* Forces the 3D camera to look straight on, eliminating top/bottom warp */
+  transform-style: preserve-3d;
+  transform: scale(0.82); /* Shrinks books slightly so all 3 fit beautifully side-by-side without crowding */
+  transition: transform 0.5s ease;
+}
+
+
+
+/* Front Cover Container - Completely borderless frame */
+.portfolio .portfolio-item .book-cover {
+  position: relative;
+  z-index: 6;
+  background-color: transparent; /* Erased white background */
+  padding: 0;                    /* Removed the frame padding entirely */
+  border-radius: 4px;            
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
+  transform-origin: left center; 
+}
+
+/* Image container fills 100% of cover area */
+.portfolio .portfolio-item .image-box {
+  width: 100%;
+  aspect-ratio: 3 / 4; 
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.portfolio .portfolio-item .image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+/* Hides label banner so the image is the entire book cover */
+.portfolio .portfolio-item .label-banner {
+  display: none !important;
+}
+
+/* Inner Pages Setup - Clean dark book pages */
+.portfolio .portfolio-item .book-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #dce0e9; /* Dark color blends with theme */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Minimal subtle line */
+  border-left: none; 
+  border-radius: 4px;
+  box-shadow: -1px 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: left center; 
+  pointer-events: none;
+}
+/* --- Perfectly Straight opening transitions (No Z-Tilts) --- */
+
+.portfolio .portfolio-item .book-wrapper:hover {
+  transform: scale(0.82); /* Keeps base size perfectly locked */
+}
+
+/* Opens wide and perfectly square */
+.portfolio .portfolio-item .book-wrapper:hover .book-cover {
+  transform: rotateY(-33deg); 
+  box-shadow: 18px 15px 35px rgba(0, 0, 0, 0.22);
+}
+
+/* Hidden pages fan out sequentially without vertical skewing */
+.portfolio .portfolio-item .book-wrapper:hover .page-1 {
+  transform: rotateY(-29deg) translateZ(-4px);
+}
+
+.portfolio .portfolio-item .book-wrapper:hover .page-2 {
+  transform: rotateY(-25deg) translateZ(-8px);
+}
+
+.portfolio .portfolio-item .book-wrapper:hover .page-3 {
+  transform: rotateY(-17deg) translateZ(-12px);
+}
+
+.portfolio .portfolio-item .book-wrapper:hover .page-4 {
+  transform: rotateY(-11deg) translateZ(-16px);
+}
+
+
+
+
+
+
+@media (min-width: 768px) {
+  
+  /* Force the main container to behave like a standard row row, ignoring JS height math */
+  .portfolio .isotope-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    height: auto !important;
+    width: 100% !important;
+       
+  }
+
+  /* Force all 3 books back into a straight row by deleting JS absolute positioning */
+  .portfolio .portfolio-item {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    
+    /* Overrides JS inline positions to force 3-in-a-row layout */
+   width: 30% !important;
+    
+    display: flex !important;
+    justify-content: center !important;
+    
+    /* Change this padding number if you want them closer together or further apart */
+    padding: 0 15px !important; 
+  }
+}
+
+/* --- Mobile Phones (Smaller than 768px) --- */
+@media (max-width: 767px) {
+  
+  .portfolio .isotope-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    height: auto !important;
+    width: 100% !important;
+    margin-left: 403px;
+  }
+
+  /* Resets columns to stack vertically at a gorgeous size on phones */
+  .portfolio .portfolio-item {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 290px; 
+    margin-bottom: 40px !important; 
+    display: flex !important;
+    justify-content: center !important;
+    padding-left: 20px !important;
+  }
+}
+
+
+
+
+/* Body background updates */
+body {
+  background-image: linear-gradient(rgba(0, 6, 15, 0.5), rgba(0, 6, 15, 0.5)), url('../img/bg-.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Sections look better transparent so the main body image shows through seamlessly */
+section, .section {
+  background-color: transparent !important;
+}
+
+/* The Frosted Glass Container */
+.menu-glass-container {
+  background: rgba(255, 255, 255, 0.05); /* Soft white tint tint */
+  backdrop-filter: blur(12px);          /* Blurs everything behind it */
+  -webkit-backdrop-filter: blur(12px);  /* Safari compatibility */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Crisp micro-border */
+  border-radius: 12px;                  /* Rounded corners */
+  padding: 40px 20px;                   /* Inside breathing room for the books */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Deep drop shadow */
+  width: 100%;
+}
+
+/* Extra spacing adjustment for stacked vertical layouts on mobile screens */
+@media (max-width: 767px) {
+  .menu-glass-container {
+    padding: 40px 10px 10px 10px;
+  }
+}
